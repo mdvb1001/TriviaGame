@@ -18,8 +18,10 @@ body {
     height: 50px;
 }
 
+/*this is for the start button*/
 .text-center {
 	margin-top: 50px;
+	float: right;
 }
 
 /*.start {
@@ -73,4 +75,8 @@ h2.eighties {
 
 .end {
 	color: black;
+}
+
+#submit {
+	float: right;
 }
