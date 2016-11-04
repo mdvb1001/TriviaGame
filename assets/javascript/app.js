@@ -1,5 +1,6 @@
 var wins = 0;
 var loses = 0;
+var notAnswered = 0;
 var game = {
     questions: [{
         q: "Which pilot won the World Championship in 1988?",
@@ -143,8 +144,11 @@ function result() {
     $('input:checked').each(function() {
         if ($(this).val() === '1') {
             wins++;
-        }
-        loses = game.questions.length - wins;
+        } else if ($(this).val() === '8') {
+            loses++
+        } 
+        notAnswered = (game.questions.length - wins) - loses;
+        
     });
     console.log('these are my wins:' + ' ' + wins);
     console.log('these are my loses:' + ' ' + loses);
@@ -152,6 +156,7 @@ function result() {
     $('.end').append("<p class='results'>RESULTS</p>"); // Title of results  
     $('.end').append("<p>Questions you got right: " + wins + '</p>'); // wins
     $('.end').append("<p>Questions you got wrong: " + loses + '</p>'); // loses
+    $('.end').append("<p>Questions you did not answer: " + notAnswered + '</p>');
 
     $(".end").show(); // the print the results in HTML 
 
