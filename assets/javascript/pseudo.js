@@ -32,7 +32,7 @@
 
 var wins = 0;
 var loses = 0;
-var notAnswered = 0;
+var notAnswered;
 var answerKey = '';
 var game = {
     questions: [{
@@ -150,9 +150,9 @@ function result() {
         } else if ($(this).val() !== undefined){
             loses++
         }
-        notAnswered = (game.questions.length - wins) - loses;
 
     });
+    notAnswered = (game.questions.length - wins) - loses;
     console.log('these are my wins:' + ' ' + wins);
     console.log('these are my loses:' + ' ' + loses);
 
