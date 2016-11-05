@@ -29,46 +29,6 @@
 // 
 // 
 
-function display() {
-for (var i = 0; i < game.questions.length; i++) {
-    var trivia = game.questions[i].q;
-    console.log(trivia);
-
-    $('.betaQuestions').append("<div><h4>" + trivia + "</h4></div>");
-
-
-    for (var j = 0; j < game.questions[i].possible.length; j++) {
-        var options = game.questions[i].possible[j];
-        console.log(options);
-        $('.betaQuestions').append("<div><input type='radio' data-index='" + j + "' name='question" + i + "' value='8'>" + " " + options + " " + "</div>")
-
-
-    }
-
-}};
-
-
-
-
-
-function result() {
-    for (var i = 0; i < game.questions.length; i++) {
-        answerKey = game.questions[i].possible.indexOf(game.questions[i].a);
-    }
-    
-    $('input:checked').each(function() {
-        if ($('input:checked').index() === answerKey) {
-            wins++;
-        } else {
-            loses++
-        }
-        notAnswered = (game.questions.length - wins) - loses;
-
-    });
-    console.log('these are my wins:' + ' ' + wins);
-    console.log('these are my loses:' + ' ' + loses);
-
-
 
 var wins = 0;
 var loses = 0;
@@ -150,6 +110,7 @@ $(document).ready(function() {
 
 
     display();
+
     $('#submit').on('click', function() {
         stop();
         $(".main").hide();
@@ -165,13 +126,13 @@ for (var i = 0; i < game.questions.length; i++) {
     var trivia = game.questions[i].q;
     console.log(trivia);
 
-    $('.betaQuestions').append("<div><h4>" + trivia + "</h4></div>");
+    $('.allQuestions').append("<div><h4>" + trivia + "</h4></div>");
 
 
     for (var j = 0; j < game.questions[i].possible.length; j++) {
         var options = game.questions[i].possible[j];
         console.log(options);
-        $('.betaQuestions').append("<div><input type='radio' data-index='" + j + "' name='question" + i + "' value='8'>" + " " + options + " " + "</div>")
+        $('.allQuestions').append("<div><input type='radio' data-question-index='" + i + "' data-index='" + j + "' name='question" + i + "' value='" + game.questions[i].possible[j] + "'>" + " " + options + " " + "</div>")
 
 
     }
@@ -181,9 +142,12 @@ for (var i = 0; i < game.questions.length; i++) {
 
 function result() {
     $('input:checked').each(function() {
-        if ($(this).val() === '1') {
+        var r = $(this).data('question-index'); 
+        console.log('question index: ' + game.questions[r].a);
+        console.log('question answer: ' + $(this).val());
+        if ($(this).val() === game.questions[r].a) {
             wins++;
-        } else if ($(this).val() === '8') {
+        } else if ($(this).val() !== undefined){
             loses++
         }
         notAnswered = (game.questions.length - wins) - loses;
