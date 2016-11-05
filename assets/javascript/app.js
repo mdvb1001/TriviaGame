@@ -1,7 +1,6 @@
 var wins = 0;
 var loses = 0;
 var notAnswered = 0;
-var answerKey = '';
 var game = {
     questions: [{
         q: "Which pilot won the World Championship in 1988?",
@@ -196,7 +195,7 @@ $(document).ready(function() {
     $('#answers11').append("<div><div><input type='radio' name='question11' value='8'>" + " " + two11 + " " + "</div></div>");
     $('#answers11').append("<div><div><input type='radio' name='question11' value='8'>" + " " + three11 + " " + "</div></div>");
     $('#answers11').append("<div><div><input type='radio' name='question11' value='8'>" + " " + four11 + " " + "</div></div>");
-    
+
     var one12 = game.questions[11].possible[0];
     var two12 = game.questions[11].possible[1];
     var three12 = game.questions[11].possible[2];
@@ -220,29 +219,6 @@ $(document).ready(function() {
     $('#answers13').append("<div><div><input type='radio' name='question13' value='8'>" + " " + four13 + " " + "</div></div>");
 
 
-    // for (var i = 0; i < game.questions.length; i++) {
-    //     var trivia = game.questions[i].q;
-    //     console.log(trivia);
-
-    //     $('.betaQuestions').append("<div><h4>" + trivia + "</h4></div>");
-
-
-    //     for (var j = 0; j < game.questions[i].possible.length; j++) {
-    //         var options = game.questions[i].possible[j];
-    //         console.log(options);
-    //         $('.betaQuestions').append("<div><input type='radio' data-index='" + j + "' name='question" + i + "' value='8'>" + " " + options + " " + "</div>")
-
-
-
-
-    //     }
-
-    // }
-
-
-
-    // });
-
     $('#submit').on('click', function() {
         stop();
         $(".main").hide();
@@ -250,9 +226,9 @@ $(document).ready(function() {
 
     });
 
-    // Execute the run function.
 
 });
+
 
 
 
@@ -269,8 +245,6 @@ function result() {
     console.log('these are my wins:' + ' ' + wins);
     console.log('these are my loses:' + ' ' + loses);
 
-
-
     $('.end').append("<p class='results'>RESULTS</p>"); // Title of results  
     $('.end').append("<p>Questions you got right: " + wins + '</p>'); // wins
     $('.end').append("<p>Questions you got wrong: " + loses + '</p>'); // loses
@@ -280,7 +254,7 @@ function result() {
 
 }
 
-var number = 1000;
+var number = 100;
 
 function run() {
     counter = setInterval(decrement, 1000);
