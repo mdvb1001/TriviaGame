@@ -165,7 +165,7 @@ function result() {
 
 }
 
-var number = 1000;
+var number = 100;
 
 function run() {
     counter = setInterval(decrement, 1000);
