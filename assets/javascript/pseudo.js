@@ -86,7 +86,7 @@ var game = {
     }, {
         q: "Why was Nelson Piquet's 1983 championship win special?",
         a: "First Turbo Champion",
-        possible: ["It was his last", "First Turbo Champion", "First Brasilian Champion", "It was his last"]
+        possible: ["It was his last", "First Turbo Champion", "First Brasilian Champion", "It was his first"]
     }]
 };
 
