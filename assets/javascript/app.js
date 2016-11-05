@@ -1,6 +1,7 @@
 var wins = 0;
 var loses = 0;
 var notAnswered = 0;
+var answerKey = '';
 var game = {
     questions: [{
         q: "Which pilot won the World Championship in 1988?",
@@ -17,7 +18,7 @@ var game = {
     }, {
         q: "Who was the French Formula One champion known as The Professor?",
         a: "Alain Prost",
-        possible: ["Jean Alesi", "Alain Prost", "Olivier Panis", "Didier Pironi"] 
+        possible: ["Jean Alesi", "Alain Prost", "Olivier Panis", "Didier Pironi"]
     }, {
         q: "I was the Formula 1 World Champion three times and would probably have won more Championships if I wasn't killed in a crash at Imola while leading the race. I was especially talented in the rain. Who am I?",
         a: "Ayrton Senna",
@@ -33,9 +34,9 @@ var game = {
     }, {
         q: "Politics were still rife in 1982, and the San Marino Grand Prix saw how many cars turn up to compete?",
         a: "14",
-        possible: ["26", "21", "18", "14"]    
+        possible: ["26", "21", "18", "14"]
     }, {
-        q: "How many laps did the 1984 Monaco Grand Prix run for, before it was stopped due to torrential rain?", 
+        q: "How many laps did the 1984 Monaco Grand Prix run for, before it was stopped due to torrential rain?",
         a: "31",
         possible: ["12", "52", "42", "31"]
     }, {
@@ -49,7 +50,7 @@ var game = {
     }, {
         q: "From which grid position, did Nigel Mansell win the 1989 Hungarian Grand Prix?",
         a: "12",
-        possible:["6", "8", "12", "14"]
+        possible: ["6", "8", "12", "14"]
     }, {
         q: "Why was Nelson Piquet's 1983 championship win special?",
         a: "First Turbo Champion",
@@ -108,31 +109,136 @@ $(document).ready(function() {
     $('#answers3').append("<div><div><input type='radio' name='question3' value='1'>" + " " + three3 + " " + "</div></div>");
     $('#answers3').append("<div><div><input type='radio' name='question3' value='8'>" + " " + four3 + " " + "</div></div>");
 
+    var one4 = game.questions[3].possible[0];
+    var two4 = game.questions[3].possible[1];
+    var three4 = game.questions[3].possible[2];
+    var four4 = game.questions[3].possible[3];
+
+    $('#question4').html(game.questions[3].q);
+    $('#answers4').append("<div><div><input type='radio' name='question4' value='8'>" + " " + one4 + " " + "</div></div>");
+    $('#answers4').append("<div><div><input type='radio' name='question4' value='1'>" + " " + two4 + " " + "</div></div>");
+    $('#answers4').append("<div><div><input type='radio' name='question4' value='8'>" + " " + three4 + " " + "</div></div>");
+    $('#answers4').append("<div><div><input type='radio' name='question4' value='8'>" + " " + four4 + " " + "</div></div>");
+
+    var one5 = game.questions[4].possible[0];
+    var two5 = game.questions[4].possible[1];
+    var three5 = game.questions[4].possible[2];
+    var four5 = game.questions[4].possible[3];
+
+    $('#question5').html(game.questions[4].q);
+    $('#answers5').append("<div><div><input type='radio' name='question5' value='1'>" + " " + one5 + " " + "</div></div>");
+    $('#answers5').append("<div><div><input type='radio' name='question5' value='8'>" + " " + two5 + " " + "</div></div>");
+    $('#answers5').append("<div><div><input type='radio' name='question5' value='8'>" + " " + three5 + " " + "</div></div>");
+    $('#answers5').append("<div><div><input type='radio' name='question5' value='8'>" + " " + four5 + " " + "</div></div>");
+
+    var one6 = game.questions[5].possible[0];
+    var two6 = game.questions[5].possible[1];
+    var three6 = game.questions[5].possible[2];
+    var four6 = game.questions[5].possible[3];
+
+    $('#question6').html(game.questions[5].q);
+    $('#answers6').append("<div><div><input type='radio' name='question6' value='8'>" + " " + one6 + " " + "</div></div>");
+    $('#answers6').append("<div><div><input type='radio' name='question6' value='8'>" + " " + two6 + " " + "</div></div>");
+    $('#answers6').append("<div><div><input type='radio' name='question6' value='1'>" + " " + three6 + " " + "</div></div>");
+    $('#answers6').append("<div><div><input type='radio' name='question6' value='8'>" + " " + four6 + " " + "</div></div>");
+
+    var one7 = game.questions[6].possible[0];
+    var two7 = game.questions[6].possible[1];
+    var three7 = game.questions[6].possible[2];
+    var four7 = game.questions[6].possible[3];
+
+    $('#question7').html(game.questions[6].q);
+    $('#answers7').append("<div><div><input type='radio' name='question7' value='8'>" + " " + one7 + " " + "</div></div>");
+    $('#answers7').append("<div><div><input type='radio' name='question7' value='8'>" + " " + two7 + " " + "</div></div>");
+    $('#answers7').append("<div><div><input type='radio' name='question7' value='1'>" + " " + three7 + " " + "</div></div>");
+    $('#answers7').append("<div><div><input type='radio' name='question7' value='8'>" + " " + four7 + " " + "</div></div>");
+
+    var one8 = game.questions[7].possible[0];
+    var two8 = game.questions[7].possible[1];
+    var three8 = game.questions[7].possible[2];
+    var four8 = game.questions[7].possible[3];
+
+    $('#question8').html(game.questions[7].q);
+    $('#answers8').append("<div><div><input type='radio' name='question8' value='8'>" + " " + one8 + " " + "</div></div>");
+    $('#answers8').append("<div><div><input type='radio' name='question8' value='8'>" + " " + two8 + " " + "</div></div>");
+    $('#answers8').append("<div><div><input type='radio' name='question8' value='8'>" + " " + three8 + " " + "</div></div>");
+    $('#answers8').append("<div><div><input type='radio' name='question8' value='1'>" + " " + four8 + " " + "</div></div>");
+
+    var one9 = game.questions[8].possible[0];
+    var two9 = game.questions[8].possible[1];
+    var three9 = game.questions[8].possible[2];
+    var four9 = game.questions[8].possible[3];
+
+    $('#question9').html(game.questions[8].q);
+    $('#answers9').append("<div><div><input type='radio' name='question9' value='8'>" + " " + one9 + " " + "</div></div>");
+    $('#answers9').append("<div><div><input type='radio' name='question9' value='8'>" + " " + two9 + " " + "</div></div>");
+    $('#answers9').append("<div><div><input type='radio' name='question9' value='8'>" + " " + three9 + " " + "</div></div>");
+    $('#answers9').append("<div><div><input type='radio' name='question9' value='1'>" + " " + four9 + " " + "</div></div>");
+
+    var one10 = game.questions[9].possible[0];
+    var two10 = game.questions[9].possible[1];
+    var three10 = game.questions[9].possible[2];
+    var four10 = game.questions[9].possible[3];
+
+    $('#question10').html(game.questions[9].q);
+    $('#answers10').append("<div><div><input type='radio' name='question10' value='8'>" + " " + one10 + " " + "</div></div>");
+    $('#answers10').append("<div><div><input type='radio' name='question10' value='8'>" + " " + two10 + " " + "</div></div>");
+    $('#answers10').append("<div><div><input type='radio' name='question10' value='1'>" + " " + three10 + " " + "</div></div>");
+    $('#answers10').append("<div><div><input type='radio' name='question10' value='8'>" + " " + four10 + " " + "</div></div>");
+
+    var one11 = game.questions[10].possible[0];
+    var two11 = game.questions[10].possible[1];
+    var three11 = game.questions[10].possible[2];
+    var four11 = game.questions[10].possible[3];
+
+    $('#question11').html(game.questions[10].q);
+    $('#answers11').append("<div><div><input type='radio' name='question11' value='1'>" + " " + one11 + " " + "</div></div>");
+    $('#answers11').append("<div><div><input type='radio' name='question11' value='8'>" + " " + two11 + " " + "</div></div>");
+    $('#answers11').append("<div><div><input type='radio' name='question11' value='8'>" + " " + three11 + " " + "</div></div>");
+    $('#answers11').append("<div><div><input type='radio' name='question11' value='8'>" + " " + four11 + " " + "</div></div>");
+    
+    var one12 = game.questions[11].possible[0];
+    var two12 = game.questions[11].possible[1];
+    var three12 = game.questions[11].possible[2];
+    var four12 = game.questions[11].possible[3];
+
+    $('#question12').html(game.questions[11].q);
+    $('#answers12').append("<div><div><input type='radio' name='question12' value='8'>" + " " + one12 + " " + "</div></div>");
+    $('#answers12').append("<div><div><input type='radio' name='question12' value='8'>" + " " + two12 + " " + "</div></div>");
+    $('#answers12').append("<div><div><input type='radio' name='question12' value='1'>" + " " + three12 + " " + "</div></div>");
+    $('#answers12').append("<div><div><input type='radio' name='question12' value='8'>" + " " + four12 + " " + "</div></div>");
+
+    var one13 = game.questions[12].possible[0];
+    var two13 = game.questions[12].possible[1];
+    var three13 = game.questions[12].possible[2];
+    var four13 = game.questions[12].possible[3];
+
+    $('#question13').html(game.questions[12].q);
+    $('#answers13').append("<div><div><input type='radio' name='question13' value='8'>" + " " + one13 + " " + "</div></div>");
+    $('#answers13').append("<div><div><input type='radio' name='question13' value='1'>" + " " + two13 + " " + "</div></div>");
+    $('#answers13').append("<div><div><input type='radio' name='question13' value='8'>" + " " + three13 + " " + "</div></div>");
+    $('#answers13').append("<div><div><input type='radio' name='question13' value='8'>" + " " + four13 + " " + "</div></div>");
 
 
-    // $('input').on('change', function() {
+    // for (var i = 0; i < game.questions.length; i++) {
+    //     var trivia = game.questions[i].q;
+    //     console.log(trivia);
 
-    //     var value = $('input[name=' + $(this).attr('name') + ']:checked').val();
-    //     if (value === '1') {
-    //         wins++;
-    //         console.log('wins:' + wins);
-    //     }else{
-    //         loses++;
-    //         console.log('loses:' + loses);
+    //     $('.betaQuestions').append("<div><h4>" + trivia + "</h4></div>");
+
+
+    //     for (var j = 0; j < game.questions[i].possible.length; j++) {
+    //         var options = game.questions[i].possible[j];
+    //         console.log(options);
+    //         $('.betaQuestions').append("<div><input type='radio' data-index='" + j + "' name='question" + i + "' value='8'>" + " " + options + " " + "</div>")
+
+
+
+
     //     }
 
+    // }
 
-    for (var i = 0; i < game.questions.length; i++) {
-        var trivia = game.questions[i].q;
-        console.log(trivia);
-        $('.betaQuestions').append("<div><h4>" + trivia + "</h4></div>");
-
-        for (var j = 0; j < game.questions[i].possible.length; j++) {
-            var options = game.questions[i].possible[j];
-            console.log(options);
-            $('.betaQuestions').append("<div><input type='radio' name='question3' value='8'>" + " " + options + " " + "</div>")
-        }
-    }
 
 
     // });
@@ -148,6 +254,8 @@ $(document).ready(function() {
 
 });
 
+
+
 function result() {
     $('input:checked').each(function() {
         if ($(this).val() === '1') {
@@ -161,6 +269,8 @@ function result() {
     console.log('these are my wins:' + ' ' + wins);
     console.log('these are my loses:' + ' ' + loses);
 
+
+
     $('.end').append("<p class='results'>RESULTS</p>"); // Title of results  
     $('.end').append("<p>Questions you got right: " + wins + '</p>'); // wins
     $('.end').append("<p>Questions you got wrong: " + loses + '</p>'); // loses
@@ -170,7 +280,7 @@ function result() {
 
 }
 
-var number = 100;
+var number = 1000;
 
 function run() {
     counter = setInterval(decrement, 1000);

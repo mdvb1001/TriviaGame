@@ -1,7 +1,3 @@
-
-
-
-
 // PHASE 1 -- Get the UI working on basic level
 // 
 // Bootstrap to create main div
@@ -32,3 +28,19 @@
 // 
 // 
 // 
+
+function result() {
+    $('input:checked').each(function() {
+        for (var i = 0; i < game.questions.length; i++) {
+            answerKey = game.questions[i].possible.indexOf(game.questions[i].a);
+        }
+        if ($(this).index() === answerKey) {
+            wins++;
+        } else if ($(this).index() !== answerKey) {
+            loses++
+        }
+        notAnswered = (game.questions.length - wins) - loses;
+
+    });
+    console.log('these are my wins:' + ' ' + wins);
+    console.log('these are my loses:' + ' ' + loses);
