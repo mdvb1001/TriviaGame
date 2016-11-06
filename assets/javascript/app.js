@@ -237,7 +237,7 @@ function result() {
         if ($(this).val() === '1') {
             wins++;
         } else if ($(this).val() === '8') {
-            loses++
+            loses++;
         }
         notAnswered = (game.questions.length - wins) - loses;
 

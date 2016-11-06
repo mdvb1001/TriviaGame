@@ -132,12 +132,12 @@ for (var i = 0; i < game.questions.length; i++) {
     for (var j = 0; j < game.questions[i].possible.length; j++) {
         var options = game.questions[i].possible[j];
         console.log(options);
-        $('.allQuestions').append("<div><input type='radio' data-question-index='" + i + "' data-index='" + j + "' name='question" + i + "' value='" + game.questions[i].possible[j] + "'>" + " " + options + " " + "</div>")
+        $('.allQuestions').append("<div><input type='radio' data-question-index='" + i + "' data-index='" + j + "' name='question" + i + "' value='" + game.questions[i].possible[j] + "'>" + " " + options + " " + "</div>");
 
 
     }
 
-}};
+}}
 
 
 function result() {
@@ -148,7 +148,7 @@ function result() {
         if ($(this).val() === game.questions[r].a) {
             wins++;
         } else if ($(this).val() !== undefined){
-            loses++
+            loses++;
         }
 
     });
