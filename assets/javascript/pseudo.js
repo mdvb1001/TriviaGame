@@ -4,10 +4,7 @@
 // Ask TA's how to go about this
 // 
 // 
-
-
 // PHASE 2 -- Get value from radio buttons 
-
 // Onclick function to start game 
 // Onclick function to end game 
 // 
@@ -15,11 +12,6 @@
 // Create an object to hold questions, answers, and correct answers	
 // 	> See object lesson for this (we did a trivia game...)
 // set value of radio buttons to a digit. Then, match that digit for the correct answer.
-
-
-
-
-
 // PHASE 3 -- Get timer/interval working
 // 
 // Function for count down timer, ends game once time runs out 
@@ -28,12 +20,11 @@
 // 
 // 
 // 
-
-
 var wins = 0;
 var loses = 0;
 var notAnswered;
 var answerKey = '';
+/** This variable holds all the questions, answer and possible answers */
 var game = {
     questions: [{
         q: "Which pilot won the World Championship in 1988?",
@@ -89,82 +80,64 @@ var game = {
         possible: ["It was his last", "First Turbo Champion", "First Brasilian Champion", "It was his first"]
     }]
 };
-
-
-
 console.log(game.questions[0].q); //prints the question
 console.log(game.questions[0].possible); //prints possible answers
 // this puts the correct answer in an array with the possible answers
 console.log(game.questions[0].possible.concat([game.questions[0].a]));
-
-$(document).ready(function() {
-
+$(document).ready(function () {
+    /** This brings up the start button that leads to the questions */
     $(".end").hide();
     $(".main").hide();
     $(".start").show();
-    $("#startButton").click(function() {
+    /** This starts the timer and shows the questions div (.main) */
+    $("#startButton").click(function () {
         $(".start").hide();
         $(".main").show();
         run();
     });
-
-
+    /** This function dynamically displays all the questions in .main div */
     display();
-
-    $('#submit').on('click', function() {
+    /** This dynamic button brings up the results of the game */
+    $('#submit').on('click', function () {
         stop();
         $(".main").hide();
         result();
-
     });
-
-
 });
-
+/** This function dynamically displays all the questions in .main div via the .allQuestions div  */
 function display() {
-for (var i = 0; i < game.questions.length; i++) {
-    var trivia = game.questions[i].q;
-    console.log(trivia);
-
-    $('.allQuestions').append("<div><h4>" + trivia + "</h4></div>");
-
-
-    for (var j = 0; j < game.questions[i].possible.length; j++) {
-        var options = game.questions[i].possible[j];
-        console.log(options);
-        $('.allQuestions').append("<div><input type='radio' data-question-index='" + i + "' data-index='" + j + "' name='question" + i + "' value='" + game.questions[i].possible[j] + "'>" + " " + options + " " + "</div>");
-
-
+    for (var i = 0; i < game.questions.length; i++) {
+        var trivia = game.questions[i].q;
+        console.log(trivia);
+        $('.allQuestions').append("<div><h4>" + trivia + "</h4></div>");
+        for (var j = 0; j < game.questions[i].possible.length; j++) {
+            var options = game.questions[i].possible[j];
+            console.log(options);
+            $('.allQuestions').append("<div><input type='radio' data-question-index='" + i + "' data-index='" + j + "' name='question" + i + "' value='" + game.questions[i].possible[j] + "'>" + " " + options + " " + "</div>");
+        }
     }
-
-}}
-
-
+}
+/** This dynamic button brings up the results of the game played */
 function result() {
-    $('input:checked').each(function() {
-        var r = $(this).data('question-index'); 
+    $('input:checked').each(function () {
+        var r = $(this).data('question-index');
         console.log('question index: ' + game.questions[r].a);
         console.log('question answer: ' + $(this).val());
         if ($(this).val() === game.questions[r].a) {
             wins++;
-        } else if ($(this).val() !== undefined){
+        } else if ($(this).val() !== undefined) {
             loses++;
         }
-
     });
     notAnswered = (game.questions.length - wins) - loses;
     console.log('these are my wins:' + ' ' + wins);
     console.log('these are my loses:' + ' ' + loses);
-
     $('.end').append("<p class='results'>RESULTS</p>"); // Title of results  
     $('.end').append("<p>Questions you got right: " + wins + '</p>'); // wins
     $('.end').append("<p>Questions you got wrong: " + loses + '</p>'); // loses
     $('.end').append("<p>Questions you did not answer: " + notAnswered + '</p>');
-
     $(".end").show(); // the print the results in HTML 
-
 }
-
 var number = 100;
 
 function run() {
@@ -176,7 +149,6 @@ function decrement() {
     number--;
     // Show the number in the #show-number tag.
     $('#timer').html("<div class='timerDisplay col-xs-3''>" + "Time Left: " + number + " sec" + "</div>");
-
     // Once number hits zero...
     if (number === 0) {
         // ...run the stop function.
@@ -184,10 +156,8 @@ function decrement() {
         // Alert the user that time is up.
         $(".main").hide();
         result();
-
     }
 }
-
 // The stop function
 function stop() {
     // Clears our "counter" interval.
